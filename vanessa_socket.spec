@@ -1,11 +1,11 @@
 Summary:	Simplify TCP/IP socket operations
 Summary(pl):	Biblioteka upraszczaj±ca operacje na gniazdach TCP/IP
 Name:		vanessa_socket
-Version:	0.0.3
-Release:	2
+Version:	0.0.4
+Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	ftp://vergenet.net/pub/vanessa_socket/vanessa_socket/%{name}-%{version}.tar.gz
+Source0:	ftp://vergenet.net/pub/vanessa/vanessa_socket/0.0.4/%{name}-%{version}.tar.gz
 URL:		http://vanessa.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
