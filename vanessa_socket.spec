@@ -89,7 +89,7 @@ mv -f configure.in.tmp configure.in
 
 rm -f missing
 %{__libtoolize}
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure
