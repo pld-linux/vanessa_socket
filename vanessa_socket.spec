@@ -1,18 +1,16 @@
 Summary:	Simplify TCP/IP socket operations
 Summary(pl):	Biblioteka upraszczaj±ca operacje na gniazdach TCP/IP
 Name:		vanessa_socket
-Version:	0.0.4
+Version:	0.0.5
 Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	ftp://vergenet.net/pub/vanessa/vanessa_socket/0.0.4/%{name}-%{version}.tar.gz
-# Source0-md5:	95a72bb2073bce2312928325db25a467
-URL:		http://vanessa.sourceforge.net/
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	libtool
+Source0:	http://www.vergenet.net/linux/vanessa/download/%{name}/%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	7f7bfdb1cfd3ea55639957172d997ca4
+URL:		http://www.vergenet.net/linux/vanessa/
 BuildRequires:	popt-devel
-BuildRequires:	vanessa_logger-devel
+BuildRequires:	vanessa_logger-devel >= 0.0.4
+Requires:	vanessa_logger >= 0.0.4
 Obsoletes:	libtcp_socket
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -31,7 +29,7 @@ Summary:	Headers for vanessa_socket development
 Summary(pl):	Pliki nag³ówkowe vanessa_socket
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
-Requires:	vanessa_logger-devel
+Requires:	vanessa_logger-devel >= 0.0.4
 
 %description devel
 Headers required to develop against vanessa_socket.
@@ -85,23 +83,15 @@ Ten kod s³u¿y g³ównie jako przyk³ad mo¿liwo¶ci libvanessa_socket.
 %setup -q
 
 %build
-sed -e s/AC_PROG_RANLIB/AC_PROG_LIBTOOL/ configure.in > configure.in.tmp
-mv -f configure.in.tmp configure.in
-
-rm -f missing
-%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
-%{__automake}
 %configure
-CFLAGS="%{rpmcflags}"
+
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_prefix}/{lib,bin,doc}}
 
-%{__make} DESTDIR=$RPM_BUILD_ROOT install
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -111,18 +101,18 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/*.so.*.*
+%doc README ChangeLog NEWS TODO
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%doc README ChangeLog NEWS TODO
-%{_libdir}/*.la
-%attr(755,root,root) %{_libdir}/*.so
-%attr(644,root,root) %{_includedir}/*.h
+%attr(755,root,root) %{_libdir}/lib*.so
+%{_libdir}/lib*.la
+%{_includedir}/*.h
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/*.a
+%{_libdir}/lib*.a
 
 %files pipe
 %defattr(644,root,root,755)
