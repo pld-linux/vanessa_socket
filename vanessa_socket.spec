@@ -28,7 +28,7 @@ oraz do przekazywania informacji miêdzy gniazdami.
 Summary:	Headers for vanessa_socket development
 Summary(pl):	Pliki nag³ówkowe vanessa_socket
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	vanessa_logger-devel >= 0.0.4
 
 %description devel
@@ -42,7 +42,7 @@ vanessa_socket.
 Summary:	Static libraries for vanessa_socket development
 Summary(pl):	Statyczne biblioteki vanessa_socket
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static vanessa_socket library.
@@ -55,7 +55,7 @@ Summary:	Trivial TCP/IP pipe build using vanessa_socket
 Summary(pl):	Prosta rurka TCP/IP stworzona przy u¿yciu vanessa_socket
 License:	GPL
 Group:		Applications/System
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description pipe
 A TCP/IP pipe is a user space programme that listens for TCP/IP
