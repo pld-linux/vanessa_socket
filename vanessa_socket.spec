@@ -22,6 +22,7 @@ BuildRequires:	libtool
 BuildRequires:	popt
 BuildRequires:	sed
 BuildRequires:	vanessa_logger-devel
+Obsoletes:	libtcp_socket
 Provides:	%{name}-%{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
