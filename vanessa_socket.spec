@@ -73,8 +73,8 @@ features of libvanessa_socket work.
 
 %description pipe -l pl
 Rurka TCP/IP to program w przestrzeni u¿ytkownika, który oczekuje na
-po³±czenia TCP/IP na lokalnym porcie, po czym ³±czy siê jako klient
-na inny port TCP/IP, który mo¿e byæ na innej maszynie. Po ustanowieniu
+po³±czenia TCP/IP na lokalnym porcie, po czym ³±czy siê jako klient na
+inny port TCP/IP, który mo¿e byæ na innej maszynie. Po ustanowieniu
 obu po³±czeñ dane wys³ane na jedno po³±czenie s± przekazywane na
 drugie, tworz±c dwukierunkow± rurkê.
 
