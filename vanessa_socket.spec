@@ -1,7 +1,8 @@
 Summary:	Simplify TCP/IP socket operations
+Summary(pl):	Biblioteka upraszczaj±ca operacje na gniazdach TCP/IP
 Name:		vanessa_socket
 Version:	0.0.3
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Group(cs):	Knihovny
@@ -25,22 +26,24 @@ URL:		http://vanessa.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
-BuildRequires:	popt
-BuildRequires:	sed
+BuildRequires:	popt-devel
 BuildRequires:	vanessa_logger-devel
 Obsoletes:	libtcp_socket
-Provides:	%{name}-%{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 Library to simplify TCP/IP socket operations. Includes code to open a
 socket to a server as a client, to listen on socket for clients as a
 server and to pipe information between sockets.
 
+%description -l pl
+Biblioteka upraszczaj±ca operacje na gniazdach TCP/IP. Zawiera kod
+otwieraj±cy gniazda do serwera jako klient, do s≥uchania jako serwer
+oraz do przekazywania informacji miÍdzy gniazdami.
 
 %package devel
-Summary:	Headers and static libraries for development
+Summary:	Headers for vanessa_socket development
+Summary(pl):	Pliki nag≥Ûwkowe vanessa_socket
 Group:		Development/Libraries
 Group(cs):	V˝vojovÈ prost¯edky/Knihovny
 Group(da):	Udvikling/Biblioteker
@@ -58,15 +61,48 @@ Group(ru):	Ú¡⁄“¡¬œ‘À¡/‚…¬Ã…œ‘≈À…
 Group(sl):	Razvoj/Knjiænice
 Group(sv):	Utveckling/Bibliotek
 Group(uk):	Úœ⁄“œ¬À¡/‚¶¬Ã¶œ‘≈À…
-Requires:	%{name}-%{version}
+Requires:	%{name} = %{version}
 Requires:	vanessa_logger-devel
 
 %description devel
-Headers and static libraries required to develop against
+Headers required to develop against vanessa_socket.
+
+%description devel -l pl
+Pliki nag≥Ûwkowe potrzebne do tworzenia programÛw z uøyciem
 vanessa_socket.
 
+%package static
+Summary:	Static libraries for vanessa_socket development
+Summary(pl):	Statyczne biblioteki vanessa_socket
+Group:		Development/Libraries
+Group(cs):	V˝vojovÈ prost¯edky/Knihovny
+Group(da):	Udvikling/Biblioteker
+Group(de):	Entwicklung/Bibliotheken
+Group(es):	Desarrollo/Bibliotecas
+Group(fr):	Development/Librairies
+Group(is):	ﬁrÛunartÛl/Agerasˆfn
+Group(it):	Sviluppo/Librerie
+Group(ja):	≥´»Ø/•È•§•÷•È•Í
+Group(no):	Utvikling/Bibliotek
+Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(pt):	Desenvolvimento/Bibliotecas
+Group(ru):	Ú¡⁄“¡¬œ‘À¡/‚…¬Ã…œ‘≈À…
+Group(sl):	Razvoj/Knjiænice
+Group(sv):	Utveckling/Bibliotek
+Group(uk):	Úœ⁄“œ¬À¡/‚¶¬Ã¶œ‘≈À…
+Requires:	%{name}-devel = %{version}
+
+%description static
+Static vanessa_socket library.
+
+%description static -l pl
+Statyczna biblioteka vanessa_socket.
+
 %package pipe
-Summary:	Trivial TCP/IP pipe build using libvanessa_adt
+Summary:	Trivial TCP/IP pipe build using vanessa_socket
+Summary(pl):	Prosta rurka TCP/IP stworzona przy uøyciu vanessa_socket
+License:	GPL
 Group:		Applications/System
 Group(cs):	Aplikace/SystÈm
 Group(da):	Programmer/System
@@ -83,9 +119,7 @@ Group(pt_BR):	AplicaÁıes/Sistema
 Group(ru):	“…Ãœ÷≈Œ…—/Û…”‘≈Õ¡
 Group(sl):	Programi/Sistem
 Group(sv):	Till‰mpningar/System
-License:	GPL
-Requires:	%{name}-%{version}
-Provides:	%{name}-pipe-%{version}
+Requires:	%{name} = %{version}
 
 %description pipe
 A TCP/IP pipe is a user space programme that listens for TCP/IP
@@ -100,6 +134,15 @@ packet filter.
 This code is intended primarily as an example of how many of the
 features of libvanessa_socket work.
 
+%description pipe -l pl
+Rurka TCP/IP to program w przestrzeni uøytkownika, ktÛry oczekuje na
+po≥±czenia TCP/IP na lokalnym porcie, po czym ≥±czy siÍ jako klient
+na inny port TCP/IP, ktÛry moøe byÊ na innej maszynie. Po ustanowieniu
+obu po≥±czeÒ dane wys≥ane na jedno po≥±czenie s± przekazywane na
+drugie, tworz±c dwukierunkow± rurkÍ.
+
+Ten kod s≥uøy g≥Ûwnie jako przyk≥ad moøliwo∂ci libvanessa_socket.
+
 %prep
 %setup -q
 
@@ -113,25 +156,22 @@ aclocal
 autoconf
 automake -a -c
 %configure
-CFLAGS="${RPM_OPT_FLAGS}"
+CFLAGS="%{rpmcflags}"
 %{__make}
-
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d ${RPM_BUILD_ROOT}/{etc,%{_prefix}/{lib,bin,doc}}
+install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_prefix}/{lib,bin,doc}}
 
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
 gzip -9nf README ChangeLog NEWS TODO
 
 %clean
-rm -rf $RPM_BUILD_DIR/%{name}-%{version}
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
-
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
@@ -139,11 +179,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/*.*a
-%attr(755,root,root) %{_libdir}/*.so
-%attr(755,root,root) %{_libdir}/*.so.0
-%attr(644,root,root) %{_includedir}/*.h
 %doc *.gz
+%attr(755,root,root) %{_libdir}/*.la
+%attr(755,root,root) %{_libdir}/*.so
+%attr(644,root,root) %{_includedir}/*.h
+
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/*.a
 
 %files pipe
 %defattr(644,root,root,755)
