@@ -6,6 +6,7 @@ Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://vergenet.net/pub/vanessa/vanessa_socket/0.0.4/%{name}-%{version}.tar.gz
+# Source0-md5:	95a72bb2073bce2312928325db25a467
 URL:		http://vanessa.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
