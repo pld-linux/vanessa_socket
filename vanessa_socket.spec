@@ -102,8 +102,6 @@ install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_prefix}/{lib,bin,doc}}
 
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
-gzip -9nf README ChangeLog NEWS TODO
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -116,7 +114,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README ChangeLog NEWS TODO
 %attr(755,root,root) %{_libdir}/*.la
 %attr(755,root,root) %{_libdir}/*.so
 %attr(644,root,root) %{_includedir}/*.h
