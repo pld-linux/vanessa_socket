@@ -8,6 +8,7 @@ Group:		Libraries
 Source0:	http://www.vergenet.net/linux/vanessa/download/%{name}/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	928c318ac74601412ff231234e1da7c9
 URL:		http://www.vergenet.net/linux/vanessa/
+BuildRequires:	gcc-c++
 BuildRequires:	popt-devel
 BuildRequires:	vanessa_logger-devel >= 0.0.4
 Requires:	vanessa_logger >= 0.0.4
