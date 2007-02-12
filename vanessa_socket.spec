@@ -1,5 +1,5 @@
 Summary:	Simplify TCP/IP socket operations
-Summary(pl.UTF-8):   Biblioteka upraszczająca operacje na gniazdach TCP/IP
+Summary(pl.UTF-8):	Biblioteka upraszczająca operacje na gniazdach TCP/IP
 Name:		vanessa_socket
 Version:	0.0.7
 Release:	1
@@ -27,7 +27,7 @@ oraz do przekazywania informacji między gniazdami.
 
 %package devel
 Summary:	Headers for vanessa_socket development
-Summary(pl.UTF-8):   Pliki nagłówkowe vanessa_socket
+Summary(pl.UTF-8):	Pliki nagłówkowe vanessa_socket
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	vanessa_logger-devel >= 0.0.4
@@ -41,7 +41,7 @@ vanessa_socket.
 
 %package static
 Summary:	Static libraries for vanessa_socket development
-Summary(pl.UTF-8):   Statyczne biblioteki vanessa_socket
+Summary(pl.UTF-8):	Statyczne biblioteki vanessa_socket
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
@@ -53,7 +53,7 @@ Statyczna biblioteka vanessa_socket.
 
 %package pipe
 Summary:	Trivial TCP/IP pipe build using vanessa_socket
-Summary(pl.UTF-8):   Prosta rurka TCP/IP stworzona przy użyciu vanessa_socket
+Summary(pl.UTF-8):	Prosta rurka TCP/IP stworzona przy użyciu vanessa_socket
 License:	GPL
 Group:		Applications/System
 Requires:	%{name} = %{version}-%{release}
