@@ -1,5 +1,5 @@
 Summary:	Simplify TCP/IP socket operations
-Summary(pl):	Biblioteka upraszczaj±ca operacje na gniazdach TCP/IP
+Summary(pl.UTF-8):   Biblioteka upraszczajÄ…ca operacje na gniazdach TCP/IP
 Name:		vanessa_socket
 Version:	0.0.7
 Release:	1
@@ -20,14 +20,14 @@ Library to simplify TCP/IP socket operations. Includes code to open a
 socket to a server as a client, to listen on socket for clients as a
 server and to pipe information between sockets.
 
-%description -l pl
-Biblioteka upraszczaj±ca operacje na gniazdach TCP/IP. Zawiera kod
-otwieraj±cy gniazda do serwera jako klient, do s³uchania jako serwer
-oraz do przekazywania informacji miêdzy gniazdami.
+%description -l pl.UTF-8
+Biblioteka upraszczajÄ…ca operacje na gniazdach TCP/IP. Zawiera kod
+otwierajÄ…cy gniazda do serwera jako klient, do sÅ‚uchania jako serwer
+oraz do przekazywania informacji miÄ™dzy gniazdami.
 
 %package devel
 Summary:	Headers for vanessa_socket development
-Summary(pl):	Pliki nag³ówkowe vanessa_socket
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe vanessa_socket
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	vanessa_logger-devel >= 0.0.4
@@ -35,25 +35,25 @@ Requires:	vanessa_logger-devel >= 0.0.4
 %description devel
 Headers required to develop against vanessa_socket.
 
-%description devel -l pl
-Pliki nag³ówkowe potrzebne do tworzenia programów z u¿yciem
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe potrzebne do tworzenia programÃ³w z uÅ¼yciem
 vanessa_socket.
 
 %package static
 Summary:	Static libraries for vanessa_socket development
-Summary(pl):	Statyczne biblioteki vanessa_socket
+Summary(pl.UTF-8):   Statyczne biblioteki vanessa_socket
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static vanessa_socket library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka vanessa_socket.
 
 %package pipe
 Summary:	Trivial TCP/IP pipe build using vanessa_socket
-Summary(pl):	Prosta rurka TCP/IP stworzona przy u¿yciu vanessa_socket
+Summary(pl.UTF-8):   Prosta rurka TCP/IP stworzona przy uÅ¼yciu vanessa_socket
 License:	GPL
 Group:		Applications/System
 Requires:	%{name} = %{version}-%{release}
@@ -71,14 +71,14 @@ packet filter.
 This code is intended primarily as an example of how many of the
 features of libvanessa_socket work.
 
-%description pipe -l pl
-Rurka TCP/IP to program w przestrzeni u¿ytkownika, który oczekuje na
-po³±czenia TCP/IP na lokalnym porcie, po czym ³±czy siê jako klient na
-inny port TCP/IP, który mo¿e byæ na innej maszynie. Po ustanowieniu
-obu po³±czeñ dane wys³ane na jedno po³±czenie s± przekazywane na
-drugie, tworz±c dwukierunkow± rurkê.
+%description pipe -l pl.UTF-8
+Rurka TCP/IP to program w przestrzeni uÅ¼ytkownika, ktÃ³ry oczekuje na
+poÅ‚Ä…czenia TCP/IP na lokalnym porcie, po czym Å‚Ä…czy siÄ™ jako klient na
+inny port TCP/IP, ktÃ³ry moÅ¼e byÄ‡ na innej maszynie. Po ustanowieniu
+obu poÅ‚Ä…czeÅ„ dane wysÅ‚ane na jedno poÅ‚Ä…czenie sÄ… przekazywane na
+drugie, tworzÄ…c dwukierunkowÄ… rurkÄ™.
 
-Ten kod s³u¿y g³ównie jako przyk³ad mo¿liwo¶ci libvanessa_socket.
+Ten kod sÅ‚uÅ¼y gÅ‚Ã³wnie jako przykÅ‚ad moÅ¼liwoÅ›ci libvanessa_socket.
 
 %prep
 %setup -q
