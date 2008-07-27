@@ -2,7 +2,7 @@ Summary:	Simplify TCP/IP socket operations
 Summary(pl.UTF-8):	Biblioteka upraszczająca operacje na gniazdach TCP/IP
 Name:		vanessa_socket
 Version:	0.0.7
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.vergenet.net/linux/vanessa/download/%{name}/%{version}/%{name}-%{version}.tar.gz
