@@ -1,12 +1,12 @@
 Summary:	Simplify TCP/IP socket operations
 Summary(pl.UTF-8):	Biblioteka upraszczająca operacje na gniazdach TCP/IP
 Name:		vanessa_socket
-Version:	0.0.10
+Version:	0.0.12
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.vergenet.net/linux/vanessa/download/%{name}/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	6cf9c167650808f0626fbe4967e4bbcb
+# Source0-md5:	05f18aed44c13551ad1f944377a21907
 URL:		http://www.vergenet.net/linux/vanessa/
 BuildRequires:	autoconf
 BuildRequires:	popt-devel
@@ -103,14 +103,14 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README ChangeLog NEWS TODO
-%attr(755,root,root) %{_bindir}/vanessa_gethostbyname
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%attr(755,root,root) %ghost %{_libdir}/libvanessa_socket.so.1
+%attr(755,root,root) %ghost %{_libdir}/libvanessa_socket.so.2
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
+%{_pkgconfigdir}/vanessa-socket.pc
 %{_includedir}/*.h
 
 %files static
